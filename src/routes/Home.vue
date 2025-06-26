@@ -137,10 +137,14 @@ const generateImage = async () => {
 
     const data = await response.json()
 
-    if (data.imageUrl) {
-      imageUrl.value = data.imageUrl
+    // Handle both URL and base64 image formats
+    if (data.image_url) {
+      imageUrl.value = data.image_url
+    } else if (data.image_b64) {
+      // Convert base64 to data URL for display
+      imageUrl.value = `data:image/png;base64,${data.image_b64}`
     } else {
-      throw new Error('No image URL received from server.')
+      throw new Error('No image data received from server.')
     }
   } catch (err: any) {
     error.value = err.message || 'An unknown error occurred'

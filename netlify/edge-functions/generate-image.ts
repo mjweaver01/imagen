@@ -47,13 +47,15 @@ export default async (request: Request) => {
 
     // Generate image
     const response = await client.images.generate({
-      model: 'gpt-image-1',
+      // model: 'gpt-image-1',
+      model: 'dall-e-3',
       prompt: prompt.trim(),
     })
 
     const image_b64 = response.data?.[0]?.b64_json
+    const image_url = response.data?.[0]?.url
 
-    if (!image_b64) {
+    if (!image_b64 && !image_url) {
       return new Response(
         JSON.stringify({ error: 'Failed to generate image data' }),
         {
@@ -66,7 +68,7 @@ export default async (request: Request) => {
       )
     }
 
-    return new Response(JSON.stringify({ image_b64 }), {
+    return new Response(JSON.stringify({ image_b64, image_url, prompt }), {
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
