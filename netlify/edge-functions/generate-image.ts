@@ -45,18 +45,31 @@ export default async (request: Request) => {
       apiKey: apiKey,
     })
 
-    // Generate image using DALL-E 3
+    // Generate image 
     const response = await client.images.generate({
-      model: 'dall-e-3',
+      model: 'gpt-image-1',
       prompt: prompt.trim(),
       n: 1,
       size: '1024x1024',
-      response_format: 'url',
+      response_format: 'b64_json',
     })
 
-    const imageUrl = response.data[0].url
+    const image_b64 = response.data?.[0]?.b64_json
 
-    return new Response(JSON.stringify({ imageUrl }), {
+    if (!image_b64) {
+      return new Response(
+        JSON.stringify({ error: 'Failed to generate image data' }),
+        {
+          status: 500,
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          },
+        }
+      )
+    }
+
+    return new Response(JSON.stringify({ image_b64 }), {
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
