@@ -47,8 +47,8 @@ export default async (request: Request) => {
 
     // Generate image
     const response = await client.images.generate({
-      // model: 'gpt-image-1',
-      model: 'dall-e-3',
+      model: 'gpt-image-1',
+      // model: 'dall-e-3',
       prompt: prompt.trim(),
     })
 
