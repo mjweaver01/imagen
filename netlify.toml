@@ -1,0 +1,19 @@
+[[edge_functions]]
+  function = "generate-image"
+  path = "/api/generate-image"
+
+# Functions configuration
+[functions]
+  directory = "netlify/functions"
+
+# Redirect API routes to Netlify functions
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# Redirect all other routes to index.html for SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200 
