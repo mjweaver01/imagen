@@ -106,9 +106,7 @@ const prefillExample = () => {
   prompt.value = `
     A vibrant, photorealistic image of a beautiful woman with long, flowing hair. 
     She is wearing a flowing dress with a deep V-neckline and a flowing skirt. 
-    The dress is a mix of warm oranges, deep purples, and electric blues.
     The background is a beautiful sunset over a body of water.
-    The image should be in a style that is reminiscent of a painting by a famous artist.
   `.trim()
 }
 
