@@ -153,13 +153,13 @@ const generateImage = async () => {
 
 <style scoped>
 .image-generator-wrapper {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 50%, #ffcc80 100%);
   min-height: 100vh;
   width: 100%;
 }
 
 .image-generator {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   font-family:
     'Inter',
@@ -171,11 +171,12 @@ const generateImage = async () => {
 
 .header {
   position: relative;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 2rem;
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8a50 50%, #ffa726 100%);
+  padding: 3rem 2rem;
+  box-shadow: 0 15px 35px rgba(255, 107, 53, 0.3);
   overflow: hidden;
   text-align: center;
+  border-radius: 0 0 30px 30px;
 }
 
 .header-background {
@@ -184,9 +185,9 @@ const generateImage = async () => {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
+  background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.15'%3E%3Cpath d='M40 40c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm20 0c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
     repeat;
-  opacity: 0.3;
+  opacity: 0.2;
 }
 
 .header-nav {
@@ -197,68 +198,78 @@ const generateImage = async () => {
 .header-title h1 {
   margin: 0;
   color: white;
-  font-size: 1.8rem;
-  font-weight: 600;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  letter-spacing: -0.02em;
 }
 
 .btn-icon {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .content {
-  padding: 3rem 2rem;
+  padding: 4rem 2rem;
 }
 
 .generator-form {
-  background: white;
-  padding: 3rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(145deg, #ffffff 0%, #fefefe 100%);
+  padding: 3.5rem;
+  border-radius: 25px;
+  box-shadow:
+    0 20px 40px rgba(255, 107, 53, 0.1),
+    0 8px 16px rgba(255, 107, 53, 0.08);
   margin-bottom: 2rem;
-  border: 1px solid #e5e7eb;
+  border: 1px solid rgba(255, 138, 80, 0.1);
+  backdrop-filter: blur(10px);
 }
 
 .input-section {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .input-section label {
   display: block;
-  margin-bottom: 0.75rem;
-  font-weight: 600;
-  color: #1f2937;
-  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #2d1b1b;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
 }
 
 .input-section textarea {
   width: 100%;
-  padding: 1rem;
-  border: 2px solid #e5e7eb;
-  border-radius: 12px;
+  padding: 1.5rem;
+  border: 2px solid #ffcc80;
+  border-radius: 16px;
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
   resize: vertical;
-  transition: all 0.3s ease;
-  background: #f8fafc;
-  line-height: 1.6;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(145deg, #fefefe, #fff8f0);
+  line-height: 1.7;
+  color: #2d1b1b;
+  box-shadow: inset 0 2px 4px rgba(255, 138, 80, 0.1);
 }
 
 .input-section textarea:focus {
   outline: none;
-  border-color: #667eea;
-  background: white;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: #ff8a50;
+  background: #ffffff;
+  box-shadow:
+    0 0 0 4px rgba(255, 138, 80, 0.15),
+    inset 0 2px 4px rgba(255, 138, 80, 0.1);
+  transform: translateY(-1px);
 }
 
 .input-section textarea:disabled {
-  background-color: #f1f5f9;
+  background: linear-gradient(145deg, #f5f5f5, #eeeeee);
   cursor: not-allowed;
   opacity: 0.7;
 }
 
 .prefill-section {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   display: flex;
   gap: 1rem;
   justify-content: flex-end;
@@ -266,11 +277,11 @@ const generateImage = async () => {
 
 .clear-btn,
 .prefill-btn {
-  background: transparent;
-  color: #4b5563;
-  border: 1px solid #d1d5db;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
+  background: linear-gradient(145deg, #ffffff, #fff8f0);
+  color: #d84315;
+  border: 2px solid #ffcc80;
+  padding: 1rem 1.75rem;
+  border-radius: 12px;
   cursor: pointer;
   font-weight: 600;
   font-size: 0.95rem;
@@ -279,28 +290,32 @@ const generateImage = async () => {
   align-items: center;
   gap: 0.5rem;
   white-space: nowrap;
+  box-shadow: 0 4px 8px rgba(255, 138, 80, 0.2);
 }
 
 .clear-btn:hover:not(:disabled),
 .prefill-btn:hover:not(:disabled) {
-  background-color: #f3f4f6;
-  border-color: #9ca3af;
+  background: linear-gradient(145deg, #fff8f0, #ffe0b2);
+  border-color: #ff8a50;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(255, 138, 80, 0.3);
 }
 
 .clear-btn:disabled,
 .prefill-btn:disabled {
   cursor: not-allowed;
   opacity: 0.5;
+  transform: none;
 }
 
 .generate-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8a50 50%, #ffa726 100%);
   color: white;
   border: none;
-  padding: 1.25rem 2rem;
-  border-radius: 12px;
-  font-size: 1.1rem;
-  font-weight: 600;
+  padding: 1.5rem 2.5rem;
+  border-radius: 16px;
+  font-size: 1.2rem;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   width: 100%;
@@ -308,24 +323,29 @@ const generateImage = async () => {
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  box-shadow:
+    0 8px 16px rgba(255, 107, 53, 0.4),
+    0 4px 8px rgba(255, 138, 80, 0.3);
+  letter-spacing: -0.01em;
 }
 
 .generate-btn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  transform: translateY(-3px);
+  box-shadow:
+    0 12px 24px rgba(255, 107, 53, 0.5),
+    0 8px 16px rgba(255, 138, 80, 0.4);
 }
 
 .generate-btn:disabled {
-  background: linear-gradient(135deg, #94a3b8, #64748b);
+  background: linear-gradient(135deg, #bdbdbd, #9e9e9e);
   cursor: not-allowed;
   transform: none;
-  box-shadow: 0 4px 12px rgba(148, 163, 184, 0.2);
+  box-shadow: 0 4px 8px rgba(158, 158, 158, 0.3);
 }
 
 .loading-spinner-btn {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-top: 2px solid white;
   border-radius: 50%;
@@ -342,40 +362,45 @@ const generateImage = async () => {
 }
 
 .error-message {
-  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
-  border: 1px solid #fca5a5;
+  background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+  border: 2px solid #ef5350;
   border-radius: 20px;
-  padding: 2rem;
+  padding: 2.5rem;
   margin-bottom: 2rem;
   text-align: center;
+  box-shadow: 0 8px 16px rgba(239, 83, 80, 0.2);
 }
 
 .error-icon {
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin-bottom: 1rem;
 }
 
 .error-message h3 {
-  color: #dc2626;
+  color: #c62828;
   margin: 0 0 0.5rem 0;
-  font-weight: 600;
-  font-size: 1.2rem;
+  font-weight: 700;
+  font-size: 1.3rem;
 }
 
 .error-message p {
-  color: #dc2626;
+  color: #d32f2f;
   margin: 0;
   font-weight: 500;
+  font-size: 1rem;
 }
 
 .result-section {
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(145deg, #ffffff 0%, #fefefe 100%);
+  border-radius: 25px;
+  box-shadow:
+    0 20px 40px rgba(255, 107, 53, 0.15),
+    0 8px 16px rgba(255, 138, 80, 0.1);
   overflow: hidden;
-  border: 1px solid #e5e7eb;
+  border: 1px solid rgba(255, 138, 80, 0.1);
   animation: slideInUp 0.6s ease-out;
   margin-top: 2rem;
+  backdrop-filter: blur(10px);
 }
 
 @keyframes slideInUp {
@@ -390,9 +415,9 @@ const generateImage = async () => {
 }
 
 .result-header {
-  padding: 1.5rem 2rem;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-  border-bottom: 1px solid #e5e7eb;
+  padding: 2rem 2.5rem;
+  background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+  border-bottom: 2px solid rgba(255, 138, 80, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -400,44 +425,52 @@ const generateImage = async () => {
 
 .result-header h2 {
   margin: 0;
-  color: #1f2937;
-  font-size: 1.5rem;
-  font-weight: 600;
+  color: #2d1b1b;
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .save-btn {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
+  padding: 1rem 2rem;
+  border-radius: 12px;
   cursor: pointer;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
   gap: 0.5rem;
   white-space: nowrap;
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 6px 12px rgba(76, 175, 80, 0.4);
   text-decoration: none;
 }
 
 .save-btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 10px 20px rgba(76, 175, 80, 0.5);
 }
 
 .image-preview {
-  padding: 2rem;
-  background-color: #f8fafc;
+  padding: 2.5rem;
+  background: linear-gradient(145deg, #fefefe, #fff8f0);
   text-align: center;
 }
 
 .image-preview img {
   max-width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.15),
+    0 6px 12px rgba(255, 138, 80, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.image-preview img:hover {
+  transform: scale(1.02);
 }
 
 .loading-overlay {
@@ -446,8 +479,12 @@ const generateImage = async () => {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(8px);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 243, 224, 0.95),
+    rgba(255, 224, 178, 0.95)
+  );
+  backdrop-filter: blur(12px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -457,45 +494,63 @@ const generateImage = async () => {
 }
 
 .loading-overlay p {
-  margin-top: 1.5rem;
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: #374151;
+  margin-top: 2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #d84315;
+  letter-spacing: -0.01em;
 }
 
 .loading-spinner {
-  width: 60px;
-  height: 60px;
-  border: 5px solid #d1d5db;
-  border-top: 5px solid #667eea;
+  width: 70px;
+  height: 70px;
+  border: 6px solid rgba(255, 138, 80, 0.3);
+  border-top: 6px solid #ff8a50;
   border-radius: 50%;
-  animation: spin 1.2s cubic-bezier(0.6, 0.1, 0.3, 1) infinite;
+  animation: spin 1.5s cubic-bezier(0.6, 0.1, 0.3, 1) infinite;
+  box-shadow: 0 8px 16px rgba(255, 138, 80, 0.2);
 }
 
 @media (max-width: 768px) {
   .content {
-    padding: 2rem 1rem;
+    padding: 3rem 1.5rem;
   }
 
   .generator-form {
-    padding: 2rem 1.5rem;
-    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
   }
 
   .result-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 1.5rem;
+  }
+
+  .header-title h1 {
+    font-size: 2rem;
   }
 }
 
 @media (max-width: 480px) {
   .generator-form {
-    padding: 1.5rem 1rem;
+    padding: 2rem 1.5rem;
   }
 
   .prefill-section {
     justify-content: space-between;
+  }
+
+  .header {
+    padding: 2rem 1rem;
+  }
+
+  .header-title h1 {
+    font-size: 1.8rem;
+  }
+
+  .content {
+    padding: 2rem 1rem;
   }
 }
 </style>
