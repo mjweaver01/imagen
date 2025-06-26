@@ -45,13 +45,10 @@ export default async (request: Request) => {
       apiKey: apiKey,
     })
 
-    // Generate image 
+    // Generate image
     const response = await client.images.generate({
       model: 'gpt-image-1',
       prompt: prompt.trim(),
-      n: 1,
-      size: '1024x1024',
-      response_format: 'b64_json',
     })
 
     const image_b64 = response.data?.[0]?.b64_json
@@ -78,7 +75,9 @@ export default async (request: Request) => {
   } catch (error) {
     console.error('Error in image generation:', error)
     const errorMessage =
-      error instanceof OpenAI.APIError ? error.message : 'Failed to generate image'
+      error instanceof OpenAI.APIError
+        ? error.message
+        : 'Failed to generate image'
     return new Response(JSON.stringify({ error: errorMessage }), {
       status: 500,
       headers: {
