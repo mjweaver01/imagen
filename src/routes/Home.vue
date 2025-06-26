@@ -63,7 +63,12 @@
           <div class="result-header">
             <h2>🖼️ Generated Image</h2>
             <div class="result-actions">
-              <a :href="imageUrl" target="_blank" download="generated-image.png" class="save-btn">
+              <a
+                :href="imageUrl"
+                target="_blank"
+                download="generated-image.png"
+                class="save-btn"
+              >
                 <span class="btn-icon">💾</span>
                 Download Image
               </a>
@@ -99,9 +104,11 @@ const clearForm = () => {
 
 const prefillExample = () => {
   prompt.value = `
-    A vibrant, photorealistic image of a futuristic city at sunset. 
-    Skyscrapers are adorned with holographic ads and flying vehicles zip between them. 
-    The color palette should be a mix of warm oranges, deep purples, and electric blues.
+    A vibrant, photorealistic image of a beautiful woman with long, flowing hair. 
+    She is wearing a flowing dress with a deep V-neckline and a flowing skirt. 
+    The dress is a mix of warm oranges, deep purples, and electric blues.
+    The background is a beautiful sunset over a body of water.
+    The image should be in a style that is reminiscent of a painting by a famous artist.
   `.trim()
 }
 
@@ -135,7 +142,6 @@ const generateImage = async () => {
     } else {
       throw new Error('No image URL received from server.')
     }
-
   } catch (err: any) {
     error.value = err.message || 'An unknown error occurred'
     console.error('Error generating image:', err)
@@ -475,7 +481,7 @@ const generateImage = async () => {
     padding: 2rem 1.5rem;
     border-radius: 16px;
   }
-  
+
   .result-header {
     flex-direction: column;
     align-items: flex-start;
@@ -487,7 +493,7 @@ const generateImage = async () => {
   .generator-form {
     padding: 1.5rem 1rem;
   }
-  
+
   .prefill-section {
     justify-content: space-between;
   }
